@@ -1,28 +1,30 @@
+import { Navbar } from './components/Navbar';
 import { Brand } from './components/Brand';
-import { useState } from 'react'
 import wapLogo from './img/wap-logo.svg'
 import './App.css'
 
 function App() {
   const logo = wapLogo 
 
+  const bookCards = [
+    {
+      title: "Touchdown, Safely!",
+      description: "A boffin's tale of all-weather approch and landing research and flight trials by R Bruce Lumsden, 1966-1986. Describing some of the contributions that RAE Bedford gave to aviation, this book is lavishly illustrated with close to 400 pictures and 280 diagrams.",
+      price: 20
+    }
+  ]
+
   return (
     <>    
 
-      <div
-        className='bg-gray-100 w-full px-5 py-2 border-t-4 border-blue-200 mt-2'
-      >
-        <div
-          className='flex w-min mx-auto'
-        >
-          <div className='mr-8'><button className='capitalize font-header text-xs'>home</button></div>
-          <div className='mr-8'><button className='capitalize font-header text-xs'>about</button></div>
-          <div className='mr-8'><button className='capitalize font-header text-xs'>books</button></div>
-          <div className='mr-8'><button className='capitalize font-header text-xs'>contact</button></div>
-        </div>
-      </div>
-
+      <Navbar  />
       <Brand logo={logo}  />
+
+      <div>
+        <h2>{bookCards[0].title}</h2>
+        <h2>{bookCards[0].price}</h2>
+        <p>{bookCards[0].description}</p>
+      </div>
 
     </>
 
