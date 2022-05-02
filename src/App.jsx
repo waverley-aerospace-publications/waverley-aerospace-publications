@@ -7,7 +7,7 @@ function App() {
   return (
     <>    
       <Navbar  />
-      <div className='max-w-3xl mx-auto'>
+      <div className='max-w-3xl mx-auto font-body'>
         <Brand />
         <Outlet />
       </div>

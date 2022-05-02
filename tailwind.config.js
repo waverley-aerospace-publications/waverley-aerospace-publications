@@ -4,7 +4,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'header': ['Cutive', 'sans-serif']
+        'header': ['Cutive', 'sans-serif'],
+        'body': ['Anonymous Pro', 'sans-serif']
       }
     },
   },
