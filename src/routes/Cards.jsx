@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Card } from '../components/Card'
 import image1 from '../img/Page127.jpg'
 import image2 from '../img/ConcordeLanding.png'
@@ -22,15 +23,24 @@ export default function Cards() {
 
   return (
       <div>
-          {bookCards.map((card, index) => (
-            <Card 
-              key={`card ${index}: ${card.title}`}
-              image={images[index]} 
-              title={card.title} 
-              description={card.description} 
-              price={card.price}              
-            />
-          ))}
+          <div className='w-10/12 sm:w-11/12 mx-auto'>
+            <p className='mb-3'>Welcome to Waverley Aerospace Publications. Below are the books currently available for purchase. <strong>Touchdown, Safely!</strong> is available immediately, whereas <strong>Blind Landing, A History</strong> is available for pre-order and will be posted week commencing 23rd May.</p>
+            <p className='mb-3'>Both books can be bought together for the reduced price of £30. P&P is £5 per order.</p>
+            <p className='mb-8'>This website is under development, and so we can not currently take payment here. However, if you'd like to email the author with a purchase order, payment can be made directly using PayPal. <Link to='/contact'>Please contact the author</Link> for details.</p>
+          </div>
+          <div className='grid md:grid-cols-2'>
+            {bookCards.map((card, index) => (
+              <div>
+                <Card 
+                  key={`card ${index}: ${card.title}`}
+                  image={images[index]} 
+                  title={card.title} 
+                  description={card.description} 
+                  price={card.price}              
+                />
+              </div>
+            ))}
+          </div>
       </div>
   )
 }

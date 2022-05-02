@@ -7,19 +7,19 @@ export function Brand() {
 
   return (
     <div 
-      className='p-5 mb-5 relative flex'
+      className='p-5 mt-4 mb-5 relative flex'
       style={{
         height: '190px'
       }}    
     >
-        <h1 className='capitalize font-header text-4xl leading-snug sm:w-max mx-auto my-auto'>
+        <h1 className='capitalize font-header text-4xl leading-snug sm:w-max my-auto ml-6 sm:ml-8 max-w-md'>
           waverley aerospace publications
         </h1>
         <div 
-            className='absolute' 
+            className='absolute max-w-sm' 
             style={{
                 right: '1rem',
-                // left: '25%',
+                // left: '40%',
                 top: '2rem',
                 bottom: '1rem',
                 backgroundImage: `url(${logo})`,
