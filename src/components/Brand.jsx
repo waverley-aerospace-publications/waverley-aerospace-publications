@@ -1,10 +1,19 @@
 import React from "react";
+import wapLogo from '../img/wap-logo.svg'
 
-export function Brand({logo}) {
+export function Brand() {
+
+  const logo = wapLogo 
+
   return (
-    <div className='p-5 relative'>
-        <h1 className=' capitalize font-header text-4xl leading-snug'>
-        waverley aerospace publications
+    <div 
+      className='p-5 mb-5 relative flex'
+      style={{
+        height: '190px'
+      }}    
+    >
+        <h1 className='capitalize font-header text-4xl leading-snug sm:w-max mx-auto my-auto'>
+          waverley aerospace publications
         </h1>
         <div 
             className='absolute' 
