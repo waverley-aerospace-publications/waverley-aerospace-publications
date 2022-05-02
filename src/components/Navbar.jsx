@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 export function Navbar() {
 
-    const links = ['home', 'about', 'contact']
+    const links = ['home', 'author', 'contact']
 
 
 

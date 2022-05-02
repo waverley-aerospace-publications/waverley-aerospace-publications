@@ -13,10 +13,10 @@ export function Card({ image, title, description, price }) {
                 <h2 className='w-max pr-2 absolute -top-3 bg-white font-bold'>
                     {title}
                 </h2>
-                <div className=' w-full mx-auto'>
+                <div className=' w-full mx-auto md:h-44'>
                     <img src={image} />
                 </div>
-                <div className='pt-6'>
+                <div className='pt-6 md:h-60'>
                     <p>{description}</p>
                 </div>
                 <h2 className='w-max pr-2 absolute -bottom-4 bg-white font-bold'>
