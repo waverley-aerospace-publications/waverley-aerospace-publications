@@ -1,9 +1,13 @@
 import React from 'react'
 import ContentBlock from '../components/ContentBlock'
+import authorImage from '../img/author_bio.png'
 
 function About() {
   return (
     <ContentBlock>
+      {/* <div className='max-w-xs'>
+        <img src={authorImage} alt='author profile picture'/>
+      </div> */}
       <p className='mb-3'>
         Bruce Lumsden was born in 1943 in Galashiels in the Scottish Borders and was educated at 
         St Peter’s School, Galashiels Academy and the University of Edinburgh where he graduated 
