@@ -29,7 +29,7 @@ function author(props) {
             {/* <Image src={authorImage}/> */}
           </div>
           {props.contentObj.content.content.map((paragraph, index) => (
-          <p key={`${index}: ${paragraph}`} className='mb-3'>{paragraph.content[0].value}</p>
+          <p key={` paragraph ${index}`} className='mb-3'>{paragraph.content[0].value}</p>
         ))}
         </div>
       {/* } */}
