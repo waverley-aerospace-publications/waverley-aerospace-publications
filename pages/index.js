@@ -23,7 +23,7 @@ export async function getStaticProps() {
     }
 }
 
-export default function Cards(props) {
+export default function home(props) {
   
   const images = [image1, image2]
 
@@ -36,7 +36,6 @@ export default function Cards(props) {
           </ContentBlock>
           <div className='grid md:grid-cols-2'>
             {props.books.map((book, index) => (
-              <div>
                 <Card 
                   key={`card ${index}: ${book.fields.title}`}
                   image={images[index]} 
@@ -44,7 +43,6 @@ export default function Cards(props) {
                   description={book.fields.content.content[0].content[0].value} 
                   price={book.fields.subtitle}              
                 />
-              </div>
             ))}
           </div>
       </div>
