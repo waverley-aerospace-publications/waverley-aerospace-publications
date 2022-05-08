@@ -37,7 +37,7 @@ export default function home(props) {
           <div className='grid md:grid-cols-2'>
             {props.books.map((book, index) => (
                 <Card 
-                  key={`card ${index}: ${book.fields.title}`}
+                  key={book.fields.title}
                   image={images[index]} 
                   title={book.fields.title} 
                   description={book.fields.content.content[0].content[0].value} 
