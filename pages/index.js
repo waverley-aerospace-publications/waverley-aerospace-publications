@@ -1,5 +1,6 @@
 import React from "react"
 import Link from "next/link"
+import Head from 'next/head'
 import Card from "../components/Card"
 import image1 from "../public/img/Page127.jpg"
 import image2 from "../public/img/ConcordeLanding.png"
@@ -29,6 +30,11 @@ export default function home(props) {
 
   return (
       <div>
+          <Head>
+            <title>Waverley Aerospace Publications</title>
+            <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+            <link rel="icon" href="/favicon.svg" />
+          </Head>
           <ContentBlock>
             <p className="mb-3">Welcome to Waverley Aerospace Publications. Below are the books currently available for purchase. <strong>Touchdown, Safely!</strong> is available immediately, whereas <strong>Blind Landing, A History</strong> is available for pre-order and will be posted week commencing 23rd May.</p>
             <p className="mb-3">Both books can be bought together for the <strong>reduced price of £40</strong>. P&P is £5 per book.</p>
