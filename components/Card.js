@@ -22,7 +22,7 @@ export default function Card({
                     {title}
                 </h2>
                 <div className=' w-full mx-auto md:h-44'>
-                    <Image src={image}/>
+                    <Image src={image} />
                 </div>
                 <div className='pt-6 md:h-60'>
                     <p>{description}</p>
