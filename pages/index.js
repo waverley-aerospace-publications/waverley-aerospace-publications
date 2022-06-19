@@ -7,44 +7,33 @@ import image2 from "../public/img/ConcordeLanding.png"
 import ContentBlock from "../components/ContentBlock"
 import fs from 'fs'
 import path from 'path'
+import matter from "gray-matter"
 
 export async function getStaticProps() {
     
-    // const res = (await client.getEntries({ content_type: "textSection" })).items
-    // const books = res.filter(item => item.fields.type === "book")
+    const files = fs.readdirSync(path.join('books'))
 
-    // return {
-    //     props: {
-    //         books
-    //     }
-    // }
+    const books = files.map((filename) => {
 
-    const files = fs.readdirSync(path.join('posts'))
-
-    const posts = files.map((filename) => {
-
-      const slug = filename.replace('.md', '')
-      
-      const markdownWithMeta = fs.readFileSync(path.join('posts', filename),'utf-8')
-      console.log(markdownWithMeta)
+      const slug = filename.replace('.md', '')      
+      const markdownWithMeta = fs.readFileSync(path.join('books', filename),'utf-8')  
+      const {data:frontmatter, content} = matter(markdownWithMeta)    
       
       return {
-        slug
-      }
-      
+        slug,
+        frontmatter,
+        content
+      }      
     })
-
 
     return {
       props: {
-        posts: 'posts'
+        books
       }
     }
 }
 
 export default function home(props) {
-
-  console.log(props)
   
   const images = [image1, image2]
 
@@ -61,15 +50,15 @@ export default function home(props) {
             <p className="mb-8">This website is under development, and so we can not currently take payment here. However, if you would like to email the author with a purchase order, payment can be made directly using PayPal. Please <strong className="underline"><Link href="/contact">contact the author</Link></strong> for details.</p>
           </ContentBlock>
           <div className="grid md:grid-cols-2">
-            {/* {props.books.map((book, index) => (
+            {props.books.map((book, index) => (
                 <Card 
-                  key={book.fields.title}
+                  key={book.frontmatter.title}
                   image={images[index]} 
-                  title={book.fields.title} 
-                  description={book.fields.content.content[0].content[0].value} 
-                  price={book.fields.subtitle}              
+                  title={book.frontmatter.title} 
+                  description={book.content} 
+                  price={book.frontmatter.price}              
                 />
-            ))} */}
+            ))}
           </div>
       </div>
   )
