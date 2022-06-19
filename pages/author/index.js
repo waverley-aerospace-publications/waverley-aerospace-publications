@@ -27,8 +27,8 @@ function author() {
               {/* <Image src={authorImage}/> */}
             </div>
             {content.map((paragraph, index) => (
-              <div>
-                <p key={`author paragraph ${index + 1}`} className='mb-3'>{paragraph}</p>
+              <div key={`author paragraph ${index + 1}`}>
+                <p className='mb-3'>{paragraph}</p>
               </div>
             ))}
           </div>
