@@ -1,15 +1,10 @@
 import ContentBlock from '../../components/ContentBlock'
 // import authorImage from '../../public/img/author_bio.png'
-import { createClient } from 'contentful'
+import client from '../../createClient'
 import Head from 'next/head'
 
 export async function getStaticProps() {
-    
-    const client = createClient({
-        space: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
-    })
-    
+        
     const res = await client.getEntries({ content_type: 'textSection' })
     const contentObj = res.items.filter(item => item.fields.title === 'R B Lumsden')[0].fields 
 

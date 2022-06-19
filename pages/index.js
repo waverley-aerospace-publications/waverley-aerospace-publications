@@ -5,22 +5,31 @@ import Card from "../components/Card"
 import image1 from "../public/img/Page127.jpg"
 import image2 from "../public/img/ConcordeLanding.png"
 import ContentBlock from "../components/ContentBlock"
-import { createClient } from "contentful"
+import fs from 'fs'
+import path from 'path'
+import matter from "gray-matter"
 
 export async function getStaticProps() {
     
-    const client = createClient({
-        space: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
+    const files = fs.readdirSync(path.join('books'))
+
+    const books = files.map((filename) => {
+
+      const slug = filename.replace('.md', '')      
+      const markdownWithMeta = fs.readFileSync(path.join('books', filename),'utf-8')  
+      const {data:frontmatter, content} = matter(markdownWithMeta)    
+      
+      return {
+        slug,
+        frontmatter,
+        content
+      }      
     })
-    
-    const res = (await client.getEntries({ content_type: "textSection" })).items
-    const books = res.filter(item => item.fields.type === "book")
 
     return {
-        props: {
-            books
-        }
+      props: {
+        books
+      }
     }
 }
 
@@ -43,11 +52,11 @@ export default function home(props) {
           <div className="grid md:grid-cols-2">
             {props.books.map((book, index) => (
                 <Card 
-                  key={book.fields.title}
+                  key={book.frontmatter.title}
                   image={images[index]} 
-                  title={book.fields.title} 
-                  description={book.fields.content.content[0].content[0].value} 
-                  price={book.fields.subtitle}              
+                  title={book.frontmatter.title} 
+                  description={book.content} 
+                  price={book.frontmatter.price}              
                 />
             ))}
           </div>
